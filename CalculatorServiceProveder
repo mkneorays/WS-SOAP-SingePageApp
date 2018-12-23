@@ -1,0 +1,411 @@
+package com.cts.web;
+
+public class Calculator {
+
+	public int addition(int x,int y) {
+		return x+y;
+	}
+	
+	public int subtraction(int x,int y) {
+		return x-y;
+	}
+	
+	public int multiplicatio(int x,int y) {
+		return x*y;
+	}
+	
+	public int division(int x,int y) {
+		return x/y;
+	}
+}
+---------------------------------------------------------------Calculato.wsdl---------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://web.cts.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://web.cts.com" xmlns:intf="http://web.cts.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://web.cts.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addition">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:int"/>
+      <element name="y" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="additionResponse">
+    <complexType>
+     <sequence>
+      <element name="additionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtraction">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:int"/>
+      <element name="y" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtractionResponse">
+    <complexType>
+     <sequence>
+      <element name="subtractionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="multiplicatio">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:int"/>
+      <element name="y" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="multiplicatioResponse">
+    <complexType>
+     <sequence>
+      <element name="multiplicatioReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="division">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:int"/>
+      <element name="y" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="divisionResponse">
+    <complexType>
+     <sequence>
+      <element name="divisionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="multiplicatioRequest">
+
+      <wsdl:part element="impl:multiplicatio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="divisionRequest">
+
+      <wsdl:part element="impl:division" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="multiplicatioResponse">
+
+      <wsdl:part element="impl:multiplicatioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subtractionResponse">
+
+      <wsdl:part element="impl:subtractionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="additionRequest">
+
+      <wsdl:part element="impl:addition" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="additionResponse">
+
+      <wsdl:part element="impl:additionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subtractionRequest">
+
+      <wsdl:part element="impl:subtraction" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="divisionResponse">
+
+      <wsdl:part element="impl:divisionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Calculator">
+
+      <wsdl:operation name="addition">
+
+         <wsdl:input message="impl:additionRequest" name="additionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:additionResponse" name="additionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtraction">
+
+         <wsdl:input message="impl:subtractionRequest" name="subtractionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:subtractionResponse" name="subtractionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiplicatio">
+
+         <wsdl:input message="impl:multiplicatioRequest" name="multiplicatioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:multiplicatioResponse" name="multiplicatioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="division">
+
+         <wsdl:input message="impl:divisionRequest" name="divisionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:divisionResponse" name="divisionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CalculatorSoapBinding" type="impl:Calculator">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addition">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="additionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="additionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtraction">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subtractionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subtractionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiplicatio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="multiplicatioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="multiplicatioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="division">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="divisionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="divisionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CalculatorService">
+
+      <wsdl:port binding="impl:CalculatorSoapBinding" name="Calculator">
+
+         <wsdlsoap:address location="http://localhost:8080/CalServiceProvider/services/Calculator"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
+-----------------------------------------------------------------web.xml---------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>CalServiceProvider</display-name>
+  
+  <servlet>
+    <display-name>Apache-Axis Servlet</display-name>
+    <servlet-name>AxisServlet</servlet-name>
+    <servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/servlet/AxisServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>*.jws</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>Axis Admin Servlet</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>org.apache.axis.transport.http.AdminServlet</servlet-class>
+    <load-on-startup>100</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/servlet/AdminServlet</url-pattern>
+  </servlet-mapping>
+</web-app-------------------------------------------------------server-config.wsdd-------------------------------------------
+
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="E:\eclipse\python\corePython\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\CalServiceProvider\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="Calculator" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="addition" qname="ns1:addition" returnQName="ns1:additionReturn" returnType="xsd:int" soapAction="" xmlns:ns1="http://web.cts.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:x" type="xsd:int"/>
+   <ns2:parameter qname="ns1:y" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:operation name="subtraction" qname="ns2:subtraction" returnQName="ns2:subtractionReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://web.cts.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:x" type="xsd:int"/>
+   <ns1:parameter qname="ns2:y" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="multiplicatio" qname="ns3:multiplicatio" returnQName="ns3:multiplicatioReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://web.cts.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:x" type="xsd:int"/>
+   <ns1:parameter qname="ns3:y" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="division" qname="ns4:division" returnQName="ns4:divisionReturn" returnType="xsd:int" soapAction="" xmlns:ns4="http://web.cts.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:x" type="xsd:int"/>
+   <ns1:parameter qname="ns4:y" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="division multiplicatio subtraction addition"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Calculator"/>
+  <ns1:parameter name="className" value="com.cts.web.Calculator"/>
+  <ns1:parameter name="wsdlServicePort" value="Calculator"/>
+  <ns1:parameter name="schemaQualified" value="http://web.cts.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://web.cts.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="CalculatorService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>
+----------------------------------------------------------------------------
+
+
+
