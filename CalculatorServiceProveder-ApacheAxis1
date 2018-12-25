@@ -1,4 +1,5 @@
 http://localhost:8080/CalculatorServiceProvider/services/Calculator?wsdl
+using this url we can check app is fine or not if wsdl will show its means fine everything
 ---------------------------------------------------------
 package com.cts.web;
 
